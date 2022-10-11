@@ -54,7 +54,8 @@ void to_Postfix(char infix[], char postfix[]) {
   		len++;
   	}
   	else if (infix[i] == '(') {
-  		push('(', &s);
+  		// push('(', &s);
+        push(infix[i], &s);
   	}
   	else if (infix[i] == ')') {
   		while (top(s) != '(')
