@@ -138,6 +138,52 @@ void deleteNode(int x, Tree *pT)
     }
 }
 
+getParent (int x, Tree T)
+{
+    Tree Parent == NULL;
+    if (T != NULL)
+    {
+        if ( T->Key == x)
+            return Parent;
+        Parent = T;
+        else if (T->Key > x)
+            getParent(x, T->Left);
+        else getParent(x, T->Right);
+    }
+    return NULL;
+}
+
+Tree rightSibling(int x, Tree T)
+{
+    Tree P=T, Sibling = NULL;
+    while (P != NULL)
+    {
+        if (P->Key == x)
+        {
+            if (P != Sibling) return Sibling;
+            else return NULL;
+        }
+        Sibling = P->Right;
+        else if (P->Key > x)
+            P = P->Left;
+        else P = P->Right;
+    }
+    return NULL;
+}
+
+int hNode(int x, Tree T)
+{
+    Tree P=T;
+    while (P != NULL)
+    {
+        if (P->Key == x)
+            getHeight(P);
+        else if (P->Key > x)
+            P = P->Left;
+        else P = P->Right;
+    } 
+    return -1;
+}
 
 //======================================
 int main ()
